@@ -1,8 +1,8 @@
 define('firebase-config', function(){
     return {
-        apiKey: "AIzaSyCpObA1C8_CiPb_z3wSEab5FIn_RkBnmmU",
-        authDomain: "vuejs-firebase-2fe23.firebaseapp.com",
-        databaseURL: "https://vuejs-firebase-2fe23.firebaseio.com",
-        storageBucket: "vuejs-firebase-2fe23.appspot.com",
+        apiKey: "AIzaSyB40iKW5F1YZKSRMMtfj7mgIphXd27b4D4",
+        authDomain: "chat-vuejs-84816.firebaseapp.com",
+        databaseURL: "https://chat-vuejs-84816.firebaseio.com",
+        storageBucket: "chat-vuejs-84816.appspot.com",
     };
 });
