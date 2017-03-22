@@ -4,24 +4,13 @@
     <meta charset="UTF-8">
     <title>Chat da School of Net</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <style type="text/css">
-        div{
-            color: green
-        }
-    </style>
 </head>
 
 <body>
 <div class="container">
     <div class="row">
-        <div id="chat">
-        <!--{{message}}-->
-            <div class="row">
-                <div class="col-md-8">
-                    <chat></chat>
-                </div>
-                <div>meu texto</div>
-            </div>
+        <div id="app">
+            <router-view></router-view>
         </div>
     </div>
 </div>
@@ -36,103 +25,6 @@
 <script type="text/javascript" src="node_modules/vue-router/dist/vue-router.min.js"></script>
 <script type="text/javascript" src="node_modules/vuefire/dist/vuefire.min.js"></script>
 <script type="text/javascript" data-main="app/app" src="node_modules/requirejs/require.js"></script>
-<script type="text/javascript">
-    var chatComponent = Vue.extend({
-       template: `
-                <style type="text/css" scoped>
-                    div{
-                        color: red;
-                    }
-                    .chat {
-                        padding: 0;
-                    }
-                    .chat li {
-                        margin-bottom: 10px;
-                        padding-bottom: 10px;
-                    }
-                    .chat li.left .chat-body {
-                        margin-left: 100px;
-                    }
-                    .chat li.right .chat-body {
-                        text-align: right;
-                        margin-right: 100px;
-                    }
-                    .panel-body {
-                        overflow-y: scroll;
-                        height: 400px;
-                    }
-                </style>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Chat</div>
-                    <div class="panel-body">
-                        <ul class="chat list-unstyled">
-                            <li class="clearfix"
-                                v-bind:class="{left: !isUser(o.email), right: isUser(o.email)}" v-for="o in chat.messages">
-                                <span v-bind:class="{'pull-left': !isUser(o.email), 'pull-right' : isUser(o.email)}">
-                                    <img v-bind:src="o.photo" class="img-circle"/>
-                                </span>
-                                <div class="chat-body">
-                                    <strong>{{ o.name }}</strong>
-                                    <p>{{o.text}}</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer">
-                        <div class="input-group">
-                            <input type="text" class="form-control input-md"
-                                   placeholder="Digite sua mensagem" v-model="message" @keyup.enter="sendMessage"/>
-                            <span class="input-group-btn">
-                                <button class="btn btn-success btn-md" @click="sendMessage">Enviar</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-       `,
-        data: function(){
-            return {
-                user: {
-                    name: "Ariel",
-                        email: "ariel@gmail.com"
-                },
-                chat: {
-                    messages:[
-                        {
-                            email: "fulano@gmail.com",
-                            text: "Olá eu sou o Fulano",
-                            name: "Fulano",
-                            photo: "http://placehold.it/50x50"
-                        },
-                        {
-                            email: "ariel@gmail.com",
-                            text: "Olá eu sou o Ariel, eu to bem pra caramba",
-                            name: "Ariel",
-                            photo: "http://placehold.it/50x50"
-                        },
-                        {
-                            email: "ariel@gmail.com",
-                            text: "Eu não te conheço",
-                            name: "Ariel",
-                            photo: "http://placehold.it/50x50"
-                        }
-                    ]
-
-                }
-            }
-        },
-        methods: {
-            isUser: function(email){
-                return this.user.email == email;
-            }
-        }
-    });
-
-    Vue.component('chat', chatComponent);
-
-    var chat = new Vue({
-        el: "#chat",
-
-    })
-</script>
+<script type="text/javascript" src="app/app.js"></script>
 </body>
 </html>
